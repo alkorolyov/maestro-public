@@ -1,0 +1,113 @@
+1.4890877.md	MD free energy profiles and COSMOmic continuum solvation benchmark on lipid bilayer partition coefficients
+1.4890877.md	Solute partitioning free energies for dibenz[a,h]anthracene and benzoic acid in POPC using umbrella sampling
+1.4890877.md	Comparison of partition coefficient definitions K_Pdef vs K_Wcor across monocarboxylic acid and PAH solutes
+1.5027004.md	Two-dimensional multidimensional PMF with minimum free energy path and trimethoprim permeability through POPC
+1.5027004.md	Transition-tempered metadynamics for convergence of membrane permeability free energy profiles
+1.5027004.md	Local diffusivity along MFEP via Hummer harmonically-restrained estimator for drug permeation
+2025.08.15.670426.md	CycLOPS model-agnostic conditioning of Boltzmann generators for cyclic peptide structures
+2025.08.15.670426.md	Tetrahedral geometry constraints and KDE joint distributions for macrocycle cyclization
+2025.08.15.670426.md	Equivariant normalizing flow and sequential Boltzmann generator for conformational ensemble sampling
+2206.01729.md	Torsional Diffusion on hypertorus manifold beating OMEGA on GEOM-DRUGS benchmark
+2206.01729.md	Score-based SDE with extrinsic-to-intrinsic score model for rotatable bond torsion angles
+2206.01729.md	Torsional Boltzmann generator with exact likelihoods from probability-flow ODE
+2305.19800.md	RINGER internal coordinate diffusion for macrocyclic peptide ensemble generation from CREMP dataset
+2305.19800.md	Transformer with cyclic bidirectional positional encoding for homodetic peptide conformational sampling
+2305.19800.md	Redundant internal coordinate representation and SLSQP ring-closing optimization for macrocycles
+2507.09785.md	SO(3)-Averaged Flow Matching for rotation-invariant conformer generation with closed-form SO(3) integral
+2507.09785.md	Reflow and distillation enabling one-step molecular conformer generation at microsecond speed
+2507.09785.md	Architecture-agnostic flow matching with SE(3)-equivariant NequIP and Diffusion Transformer
+BF01870573.md	Mueller-Rudin planar lipid bilayer method for intrinsic permeability of monocarboxylic acids
+BF01870573.md	pH-series unstirred-layer correction via HA/A dissociation for weak acid membrane permeation
+BF01870573.md	Linear log p_m vs log K_p relationship slope 0.90 for hexadecane water partition coefficient prediction
+acs.jcim.0c00025.md	ETKDG distance geometry conformer generation for macrocycles with eccentricity constraints
+acs.jcim.0c00025.md	Custom Pairwise Coulombic Interactions for amide H-O bonds in cyclic peptide trans-annular hydrogen bonding
+acs.jcim.0c00025.md	Small-ring torsional-angle potentials fitted to CSD experimental crystal structures for aliphatic rings
+acs.jcim.1c00380.md	Large-scale cyclic peptide permeability prediction with steered MD and replica-exchange umbrella sampling
+acs.jcim.1c00380.md	ISDM modified barrier model identifying flip step at membrane center as rate-limiting for 156 peptides
+acs.jcim.1c00380.md	Electrostatic interaction correlation with peptide permeability flip barrier in POPC lipid bilayer
+acs.jcim.1c01360.md	PepSeA MAFFT sequence alignment with ROCS Tanimoto Combo substitution matrix for non-natural peptides
+acs.jcim.1c01360.md	HELM hierarchical editing language notation for cyclic cross-linked peptides with ChEMBL monomers
+acs.jcim.1c01360.md	Chemical-similarity-weighted substitution matrix from 3D conformer ROCS scoring
+acs.jcim.2c01573.md	CycPeptMPDB comprehensive database of cyclic peptide membrane permeability with HELM monomer representation
+acs.jcim.2c01573.md	Integrated permeability assays PAMPA Caco-2 MDCK RRCK with monomer-level browsing and diversity analysis
+acs.jcim.2c01573.md	Cyclic versus lariat molecule shape classification from HELM notation and permeability distribution per monomer
+acs.jcim.3c00563.md	CONFORGE stochastic distance geometry and MMFF94 refinement for macrocycle conformer generation
+acs.jcim.3c00563.md	Prime dataset benchmark of 208 macrocycles showing CONFORGE best ring RMSD
+acs.jcim.3c00563.md	Open-source CDPKit Chemical Data Processing Toolkit for robust macrocycle ensemble generation
+acs.jcim.6b00022.md	Benchmark of umbrella sampling REUS ABF and MW-ABF enhanced sampling methods for ISDM membrane permeability
+acs.jcim.6b00022.md	DMPC bilayer PMF convergence dominance over diffusivity in log permeability
+acs.jcim.6b00022.md	Few-point PMF reconstruction using only peak W(z) and D(z) center for rapid permeability screening
+acs.jcim.7b00052.md	Prime-MCS macrocycle conformational sampling benchmark accuracy diversity speed CSD PDB BIRD
+acs.jcim.7b00052.md	macrocycle conformer generation torsional fingerprint backbone RMSD crystal structure reproduction
+acs.jcim.7b00052.md	Prime-MCS spinroot dead-end elimination half-loops macrocycle topology
+acs.jcim.8b00744.md	h-bonds while partitioned MDCK-LE flip-flop barrier weakly basic drug permeability
+acs.jcim.8b00744.md	membrane partitioning descriptor GPU-hours MDCK permeability hydrogen bonds lipid head group
+acs.jcim.8b00744.md	inhomogeneous solubility-diffusion model ISDM PMF partition coefficient POPC bilayer descriptor
+acs.jcim.9b00217.md	cyclic hexapeptide diastereomer McMD cyclohexane SASA permeability prediction
+acs.jcim.9b00217.md	multicanonical MD TTP-V-McMD virtual system coupled trivial trajectory parallelization
+acs.jcim.9b00217.md	cyclohexane SASA membrane mimic superior to PSA for cyclic peptide free-energy landscape
+acs.jcim.9b00224.md	PerMM physics-based heterogeneous solubility-diffusion anisotropic solvent DOPC bilayer permeability
+acs.jcim.9b00224.md	PerMM correlation with BLM liposomes PAMPA-DS Caco-2 MDCK permeability assays
+acs.jcim.9b00224.md	PPM 2.0 transbilayer free-energy profile intrinsic permeability cyclosporine A IMHB
+acs.jcim.9b00225.md	PerMM web server database 506 compounds BLM PAMPA BBB Caco-2 MDCK
+acs.jcim.9b00225.md	PerMM empirical scaling equations system-specific Caco-2 MDCK BBB permeability
+acs.jcim.9b00225.md	PerMM drag method global rotational optimization translocation pathway DOPC
+acs.jmedchem.4c01956.md	hydrocarbon decadiene partition coefficient macrocyclic peptide IMHB chromatography lipophilicity
+acs.jmedchem.4c01956.md	PRP-C18 isocratic chromatographic lipophilicity thioether cyclopeptide MDCK permeability
+acs.jmedchem.4c01956.md	chromatographic lipophilic permeability efficiency HBD burial PAMPA parabolic
+acs.jpcb.7b02914.md	umbrella sampling MD solubility-diffusion PMF DOPC bilayer PAMPA validation
+acs.jpcb.7b02914.md	umbrella sampling calibration prospective permeability prediction LLNL
+acs.jpcb.7b02914.md	Hummer position-specific membrane diffusion coefficient steered MD permeability
+acs.jpcb.9b11728.md	COSMOperm COSMO-RS mechanistic neutral anions cations black lipid membrane permeability
+acs.jpcb.9b11728.md	COSMOperm layer-specific diffusion Born correction ion permeation membrane dipole potential
+acs.jpcb.9b11728.md	COSMOmic inhomogeneous layered liquid sigma-profile orientation partition coefficient fast
+acs.molpharmaceut.4c00975.md	meta-analysis permeability MolMeDB ChEMBL apparent intrinsic PAMPA contamination
+acs.molpharmaceut.4c00975.md	unstirred water layer ceiling Caco-2 MDCK diffusion limit permeability
+acs.molpharmaceut.4c00975.md	cross-assay permeability correlation Caco-2 MDCK intrinsic PAMPA computational BLM
+acschembio.3c00159.md	PAP pairwise aligned peptide Needleman-Wunsch chemical similarity noncanonical amino acids
+acschembio.3c00159.md	Morgan fingerprints amino acid matrix sphere exclusion peptide clustering
+acschembio.3c00159.md	stereochemistry D-amino acid L-amino acid similarity matrix cyclic peptide family
+admet.1568.md	Levich equation aqueous boundary layer PAMPA stirring frequency molecule-specific thickness
+admet.1568.md	PAMPA ABL thickness diffusivity scaling stirring calibration
+admet.1568.md	unstirred water layer correction intrinsic apparent permeability resistance addition
+bmc.2018.01.027.md	CycLS tandem MS cyclic peptide sequencing database search library deconvolution
+bmc.2018.01.027.md	peptoid N-methylation automated sequencing split-pool library
+bmc.2018.01.027.md	cyclic peptide whole-library sequencing accuracy unique mass hexapeptides
+c9cp01169b.md	COSMOplex self-consistent COSMO-RS membrane structure generation self-organizing
+c9cp01169b.md	COSMOplex layer-specific pressure Pauli repulsion DMPC bilayer partition coefficient
+c9cp01169b.md	COSMOplex laptop CPU minutes vs MD hours self-consistent iteration
+ci2000192.md	anisotropic solvent model lipid bilayer parameterization long-range electrostatics solvation
+ci2000192.md	atom-type solvation parameters ASA transfer energy neutral compounds ions
+ci200020k.md	anisotropic solvent PPM 2.0 peptides proteins membrane insertion binding energy
+ci200020k.md	depth-dependent polarity profiles Henderson-Hasselbalch deionization penalty pH permeability
+cycpeptmpdb_sources.md	CycPeptMPDB cyclic peptide membrane permeability database Caco-2 PAMPA cell penetration
+cycpeptmpdb_sources.md	cell-penetrant cyclic peptides N-methylated oral bioavailability permeability database entries
+fmc-2018-0429.md	chameleonicity closed conformation IMHB cyclic peptides membrane permeability flip-flop sliding
+fmc-2018-0429.md	conformational sampling size-dependent mechanism cyclosporine cell-permeable macrocycles
+gkr703.md	OPM database PPM protein positioning membrane anisotropic bilayer proteins peptides
+gkr703.md	transfer energy minimization membrane-bound structures spatial position lipid bilayer orientations
+ijms24055021.md	CDP5 cyclic decapeptide umbrella sampling ISDM Markov state model flip-flop barrier permeation
+ijms24055021.md	inhomogeneous solubility-diffusion model PAMPA hexadecane membrane permeability methods comparison
+j.bbamem.2015.12.014.md	molecular dynamics nonfacilitated permeation solubility-diffusion model umbrella sampling review
+j.bbamem.2015.12.014.md	potential of mean force diffusivity profile membrane permeability force autocorrelation WHAM
+j.ejps.2004.11.011.md	Double-Sink PAMPA pKaflux method Caco-2 weakly basic drugs pH-dependent permeability
+j.ejps.2004.11.011.md	intrinsic permeability aqueous boundary layer correction double-sink artificial membrane assay
+j.sbi.2023.102603.md	chameleonic cyclic peptides conformational dynamics solvent-dependent switching membrane permeability design
+j.sbi.2023.102603.md	cis-trans isomerization peptide bonds de novo design conformer ensemble permeability macrocycles
+j100066a040.md	Marrink Berendsen water permeation DPPC free energy profile diffusion
+j100066a040.md	solubility-diffusion model umbrella sampling constrained MD permeation resistance barrier water
+ja063076p.md	Rezai Lokey low-dielectric conformation cyclic peptides IMHB insertion free energy PAMPA
+ja063076p.md	conformational flexibility internal hydrogen bonds passive membrane permeability cyclic peptides
+jm401411z.md	molecular similarity Tanimoto coefficient similarity-property principle activity cliffs threshold
+jm960290n.md	Tanimoto similarity 0.85 neighborhood radius threshold 2D fingerprints validation
+journal.pcbi.0020065.md	MHC-I peptide binding affinity IC50 binder classification benchmark dataset
+journal.pone.0190319.md	apparent permeability Caco-2 MDCK mechanistic model cytosolic paracellular lateral pathways
+jp801736k.md	COSMOmic COSMO-RS membrane-water partition coefficient anisotropic layered liquid depth-resolved free energy
+physics_permeability_methods.md	ISDM inhomogeneous solubility-diffusion resistance integral PerMM COSMOperm physics families survey
+pro.4219.md	PPM 3.0 curved membrane protein positioning anisotropic solvent BAR domains Piezo channels
+s0928-0987(04)00121-6.md	PAMPA individual-well magnetic stirring unstirred water layer hydrodynamic rpm
+s13321-017-0234-y.md	LEMONS modular natural product monomer enumeration GRAPE GARLIC retrobiosynthesis alignment
+s13321-020-00445-4.md	MAP4 MinHashed atom-pair fingerprint peptide macrocycle similarity outperforms ECFP4
+s41589-026-02237-7.md	cyclic peptide Keap1 Nrf2 PPI inhibitor CAPA efflux ratio assay disagreement
+s41597-024-03698-y.md	CREMP macrocyclic peptides millions of conformers CREST GFN2-xTB chloroform implicit solvation
+smallmol_pampa_sources.md	NCATS ADME PAMPA small-molecule PAMPA dataset inventory pH 7.4

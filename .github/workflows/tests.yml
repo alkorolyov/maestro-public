@@ -1,0 +1,41 @@
+# The gate for maestro itself: the unit suite on both ends of the supported Python
+# range, with the coverage floor.
+#
+# What is NOT here, deliberately: tests/e2e/run_smoke.sh. It logs real runs to a
+# self-hosted W&B and MLflow and reads them back, so it needs those endpoints and their
+# credentials — it is the pre-merge gate on a machine that has them, not a job that can
+# run on a clean runner. Everything CI can prove, it proves on every push.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false          # a 3.10-only break should not hide a 3.12-only one
+      matrix:
+        # Both ends of requires-python. The floor is not decoration: tracking.py needs
+        # the tomli backport below 3.11, and nothing noticed it was undeclared until
+        # this matrix stopped resolving packages from a developer's machine.
+        python: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Unit suite + coverage floor
+        # The floor lives in pyproject's [tool.pytest.ini_options] addopts, so this
+        # command and a developer's `uv run --group dev pytest` cannot disagree about
+        # what passing means.
+        run: uv run --group dev --python ${{ matrix.python }} pytest -q
+
+      - name: Drift check (maestro on itself)
+        run: uv run --group dev --python ${{ matrix.python }} maestro docs check

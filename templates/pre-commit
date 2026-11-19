@@ -1,0 +1,115 @@
+#!/bin/sh
+# maestro pre-commit v4
+#
+# Installed by 'maestro init' as <project>/.git/hooks/pre-commit. Three guards, in
+# this order:
+#
+#   1. record stamp — 'maestro docs stamp --check'. A record whose CLI-owned
+#      surface was edited by hand no longer matches its stamp (maestro rule 1:
+#      records are written by the CLI). Runs first, on every branch, always.
+#   2. staged drift — 'maestro docs check --staged'. The stamp answers "did the CLI
+#      write this record"; it cannot answer "does this doc assert a result with no
+#      evidence" (rule 2 / ADR 9) or "is progress.md holding a metric" (rule 10).
+#      Nothing enforced that anywhere, in either harness, so a session could reason
+#      its way to running 'docs check', drop the call, and commit the drift. --staged
+#      scopes the report to the files THIS commit touches, so pre-existing drift
+#      elsewhere in the project never holds an unrelated commit hostage.
+#   3. main trunk guard — main is the integration trunk: code reaches it only
+#      through a merge of a feature branch. The one exception is docs/, which the
+#      orchestrator commits directly on main. This is the strict lane's rule
+#      (maestro modules/concurrency.md — a dsh planner routing local executors in
+#      one checkout), so it runs only in block mode: a high-judgment session under
+#      MAESTRO_GATES=warn organises its own git work.
+#
+# A --no-ff merge is unaffected: git runs pre-merge-commit instead of this hook,
+# and a merge finished after a conflict concludes while MERGE_HEAD exists.
+#
+# MAESTRO_SKIP_DOCS_CHECK=1 drops guard 2 for one commit. There is no such escape
+# for guards 1 and 3: a broken stamp has 'maestro docs stamp --accept' as its
+# deliberate blessing, and the trunk rule has the branch recipe it prints.
+#
+# MAESTRO_GATES=warn (tools/maestro_cli/gates.py) turns guards 1 and 2 into
+# warnings: the same report is printed and the commit goes through. It is the mode
+# for a high-judgment session; weaker executors keep the default, block. Guard 3 is
+# a git-workflow rule, not a record gate: it blocks in block mode and is skipped in
+# warn mode.
+
+case "$(printf '%s' "${MAESTRO_GATES:-}" | tr '[:upper:]' '[:lower:]' | tr -d ' ')" in
+	warn) gates=warn ;;
+	*) gates=block ;;
+esac
+
+# ── the CLI, or nothing ──────────────────────────────────────────────────────
+# The installed console script, else this checkout's package run as a module when
+# MAESTRO_CLI names the directory holding maestro_cli/ (the same fallback
+# global/hooks/guard_stamps.py makes). With neither, the guards stay quiet: a
+# machine without the CLI cannot check a stamp, and must not fail every commit.
+
+if command -v maestro >/dev/null 2>&1; then
+	set -- maestro
+elif [ -n "${MAESTRO_CLI:-}" ] && [ -f "$MAESTRO_CLI/maestro_cli/cli.py" ]; then
+	PYTHONPATH="$MAESTRO_CLI${PYTHONPATH:+:$PYTHONPATH}"
+	export PYTHONPATH
+	set -- python3 -m maestro_cli.cli
+else
+	set --
+fi
+
+# ── guard 1: the record stamp ────────────────────────────────────────────────
+
+if [ "$#" -gt 0 ]; then
+	"$@" docs stamp --check >/dev/null || {
+		if [ "$gates" = warn ]; then
+			echo >&2 "pre-commit: WARNING (MAESTRO_GATES=warn, not blocked): hand-edited maestro record(s) — see above."
+		else
+			echo >&2 "pre-commit: hand-edited maestro record(s) — see above."
+			echo >&2 "            'maestro docs stamp --accept' blesses a deliberate hand fix."
+			exit 1
+		fi
+	}
+fi
+
+# ── guard 2: no NEW drift in the files being committed ───────────────────────
+# Exit 2 is the drift verdict (the report is already on stderr). Any other non-zero
+# is the CLI failing to run at all — not the commit's fault, so it is not blocked.
+
+if [ "$#" -gt 0 ] && [ "${MAESTRO_SKIP_DOCS_CHECK:-}" != "1" ]; then
+	"$@" docs check --staged >/dev/null
+	if [ "$?" -eq 2 ]; then
+		if [ "$gates" = warn ]; then
+			echo >&2 "pre-commit: WARNING (MAESTRO_GATES=warn, not blocked): the staged docs carry drift — see above."
+		else
+			echo >&2 "pre-commit: the staged docs carry drift — see the report above."
+			echo >&2 "            Fix it, or 'MAESTRO_SKIP_DOCS_CHECK=1 git commit ...' to override."
+			exit 1
+		fi
+	fi
+fi
+
+# ── guard 3: only docs/ is committed directly on main ────────────────────────
+
+branch=$(git symbolic-ref --short -q HEAD)
+gitdir=$(git rev-parse --git-dir)
+
+if [ "$gates" = block ] && [ "$branch" = "main" ] && [ ! -e "$gitdir/MERGE_HEAD" ]; then
+	outside=$(git diff --cached --name-only | grep -v '^docs/')
+	if [ -n "$outside" ]; then
+		echo >&2 "──────────────────────────────────────────────────────────────"
+		echo >&2 "  BLOCKED: on 'main' only docs/ may be committed directly."
+		echo >&2 ""
+		echo >&2 "  Staged outside docs/:"
+		echo "$outside" | head -n 5 | sed 's/^/       /' >&2
+		echo >&2 ""
+		echo >&2 "  Code reaches main only through a merge:"
+		echo >&2 "     git merge --no-ff feat/<slug>"
+		echo >&2 ""
+		echo >&2 "  Recipe:"
+		echo >&2 "     git switch -c feat/<slug> main"
+		echo >&2 "     # ...commit the code on feat/<slug>..."
+		echo >&2 "     git switch main && git merge --no-ff feat/<slug>"
+		echo >&2 "──────────────────────────────────────────────────────────────"
+		exit 1
+	fi
+fi
+
+exit 0

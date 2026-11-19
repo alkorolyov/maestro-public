@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.env
+
+# Instruction-file TEMPLATES are tracked (the live CLAUDE.md / QWEN.md configs
+# stay excluded via .git/info/exclude; these are skeletons, not real configs).
+build/
+dist/
+
+# coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE / local tool state
+.idea/
+.qwen/

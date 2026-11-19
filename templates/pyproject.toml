@@ -1,0 +1,17 @@
+# pyproject.toml
+[tool.maestro]
+# The ONE experiment tracker this project logs to — optional, off by default.
+#   "none"   metrics stay machine-written artifacts in data/experiments/exp_NN_*/
+#            (metrics.json, run.log), read back from there at write-up
+#   "wandb"  suits deep-learning runs      |  "mlflow"  suits classical-ML runs
+# The `runs` tool reads this key; with a tracker, the endpoint and credentials come from
+# the ENVIRONMENT (never from a file in the repo) and the tracker project name = this
+# repo's dir name. Omitting the key means "none". `maestro init --tracker=` writes it.
+tracker = "none"   # "none" | "wandb" | "mlflow"
+
+[tool.pytest.ini_options]
+addopts = "-m 'not slow and not integration'"
+markers = [
+    "slow: tests >1s or using heavy deps",
+    "integration: requires external resources (GPU, Docker, network)",
+]

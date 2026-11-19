@@ -1,0 +1,80 @@
+how does AlphaFold2 predict protein tertiary structure from sequence	gkr703	corpus only positions known protein structures in a membrane (OPM/PPM); no paper predicts 3D fold from sequence
+what methods predict protein secondary structure alpha helix and beta sheet content	ci200020k	OPM/anisotropic-solvent papers handle proteins in membranes but never predict secondary-structure elements from sequence
+how to predict protein backbone dihedral angles phi psi from amino acid sequence	2305.19800	RINGER models peptide backbone torsions for conformer generation, not phi/psi secondary-structure prediction of folded proteins
+deep learning model for predicting protein contact maps	gkr703	no contact-map / residue-residue distance prediction anywhere in corpus
+predict the effect of point mutations on protein thermostability	ci200020k	corpus has membrane insertion energetics, not protein stability / ddG-on-mutation prediction
+protein-ligand binding affinity prediction with deep learning	s41589-026-02237-7	corpus cyclic-peptide PPI paper is about making peptides permeable, not scoring ligand binding affinity
+molecular docking of small molecules into a protein binding pocket	acs.jcim.9b00224	PerMM positions molecules in a membrane, not docks ligands into protein pockets
+free energy perturbation FEP for relative binding affinity of congeneric ligands	acs.jcim.1c00380	corpus free-energy MD is for membrane permeation PMF, not protein-ligand FEP binding affinity
+structure-based virtual screening of a compound library against a target	jm401411z	similarity papers do ranking by chemical similarity, not target-based virtual screening hit-finding
+ultra-large library docking for hit discovery	acschembio.3c00159	combinatorial-library clustering paper is about peptide families, not docking-based hit discovery
+QSAR model predicting hERG cardiac ion channel inhibition	acs.jcim.8b00744	MD descriptors predict permeability here, no hERG / cardiotoxicity QSAR
+predict Ames mutagenicity of a small molecule	acs.molpharmaceut.4c00975	meta-analysis is on permeability assays, not genotoxicity/mutagenicity endpoints
+machine learning model for acute oral toxicity LD50	acs.jcim.8b00744	no toxicity endpoint modeled; corpus descriptors target permeability
+predict aqueous solubility logS of organic compounds	acs.molpharmaceut.4c00975	permeability papers mention solubility as a confounder but none builds an aqueous-solubility predictor
+metabolic stability prediction microsomal clearance	acs.jpcb.7b02914	corpus validates permeability against assays, not metabolic/microsomal clearance
+predict cytochrome P450 CYP3A4 inhibition and metabolism site	acs.jcim.8b00744	no CYP450 metabolism / SOM prediction in corpus
+plasma protein binding fraction unbound prediction	acs.jmedchem.4c01956	lipophilicity here is permeability-relevant, not plasma-protein-binding fraction-unbound
+retrosynthesis planning predict synthetic routes for a target molecule	acs.jcim.3c00563	conformer-generation tooling, no synthesis-planning/retrosynthesis anywhere
+predict the major product of an organic chemical reaction	c9cp01169b	COSMO-RS here models membrane partitioning, not reaction-product prediction
+crystal structure prediction and polymorph ranking of organic solids	ci2000192	implicit-solvent membrane model, no crystal/polymorph lattice-energy prediction
+predict melting point of organic crystalline compounds	1.4890877	partition free energies in bilayers, not solid-state melting-point prediction
+antibody developability and aggregation propensity prediction	j.sbi.2023.102603	chameleonic cyclic-peptide design is about permeability, not antibody developability/aggregation
+de novo antibody CDR loop design against an antigen	s41589-026-02237-7	de-novo cyclic-peptide design for permeability, not antibody CDR design
+predict protein-protein interaction interface residues	s41589-026-02237-7	corpus PPI paper inhibits a PPI with a permeable peptide; it does not predict PPI interface residues
+predict whether two proteins interact protein-protein interaction network	s41589-026-02237-7	no PPI-network / interactome prediction; the PPI paper is about peptide permeability
+enzyme kinetics predict catalytic turnover number kcat	acs.jcim.6b00022	diffusion constants here are membrane-permeation D(z), not enzymatic kcat/Km kinetics
+predict enzyme reaction mechanism and transition state	c9cp01169b	COSMO-RS for membranes, not enzyme catalytic mechanism / TS modeling
+GPCR signaling bias and agonist efficacy prediction	gkr703	OPM positions membrane proteins structurally; no GPCR signaling/efficacy modeling
+kinase selectivity profiling across the kinome	jm401411z	similarity papers do not address kinase-target selectivity profiling
+de novo generative design of novel small-molecule drugs	2206.01729	generative models here make conformers of given molecules, not new molecular graphs/SMILES
+reinforcement learning for goal-directed molecule generation	2507.09785	flow/diffusion generators produce 3D conformers, not novel chemical structures via RL
+molecular dynamics of protein folding and folding pathways	j.bbamem.2015.12.014	MD here is small-molecule/peptide membrane permeation, not protein folding kinetics
+simulate protein allosteric conformational transitions with MD	ijms24055021	MD/US in corpus targets peptide membrane crossing, not allosteric protein transitions
+cryo-EM single particle reconstruction and map refinement	pro.4219	PPM uses existing PDB structures; no cryo-EM density reconstruction in corpus
+determine protein structure from NMR NOE restraints	2305.19800	NMR is only a validation reference for conformers; no NMR structure-determination protocol
+X-ray crystallography protein structure refinement and phasing	gkr703	corpus consumes PDB structures, never solves/refines crystallographic phases
+shotgun proteomics protein quantification from LC-MS/MS spectra	bmc.2018.01.027	CycLS does de-novo cyclic-peptide MS/MS sequencing, not bottom-up proteomics quantification
+label-free proteomics differential expression analysis	bmc.2018.01.027	MS/MS here sequences cyclic peptides, not quantify proteome expression
+single-cell RNA sequencing clustering and cell-type annotation	acschembio.3c00159	clustering here is of peptide chemical families, not single-cell transcriptomes
+predict gene expression from DNA regulatory sequence	journal.pcbi.0020065	the only sequence/binding benchmark is MHC-I peptide binding, not gene-expression regulation
+DFT calculation of reaction activation energy and barrier heights	acs.jpcb.9b11728	QM here is COSMO-RS solvation for permeability, not gas-phase DFT reaction barriers
+predict NMR chemical shifts from molecular structure with DFT	jp801736k	no NMR chemical-shift prediction; corpus QM is continuum solvation
+compute molecular electronic excited states and UV-vis spectra	ci2000192	corpus electrostatics is implicit-solvent transfer energy, not excited-state/UV-vis spectra
+predict infrared IR vibrational spectra of molecules	c9cp01169b	no vibrational-spectroscopy prediction in corpus
+force-field parameterization of small-molecule torsional potentials	acs.jcim.0c00025	corpus uses existing force fields and torsion preferences; it does not derive/parameterize new FF torsions
+develop a machine-learned interatomic potential MLIP for materials	2507.09785	flow-matching here is a conformer generator, not an MLIP/energy surrogate for materials
+predict band gap of inorganic crystalline materials	ci2000192	no inorganic materials / band-gap property prediction anywhere
+gas adsorption capacity prediction in metal-organic frameworks	c9cp01169b	COSMOplex self-organizes lipid systems, not MOF gas adsorption
+predict the solubility of a gas in an ionic liquid	jp801736k	COSMO-RS here targets membrane-water partitioning, not gas-in-ionic-liquid solubility
+predict octanol-air partition coefficient for environmental fate	1.5027004	corpus partition/permeability is lipid-bilayer membranes, not octanol-air environmental partitioning
+predict skin permeation flux through the stratum corneum	BF01870573	monocarboxylic-acid bilayer permeation is not transdermal skin / stratum-corneum permeation modeling
+predict intestinal absorption fraction absorbed fa in humans	journal.pone.0190319	corpus models in-vitro cell-monolayer permeability, not human fraction-absorbed PK
+physiologically based pharmacokinetic PBPK whole-body model	acs.jpcb.7b02914	corpus stops at in-vitro permeability; no PBPK / whole-body PK simulation
+predict drug efflux by P-glycoprotein transporter	s41589-026-02237-7	efflux is mentioned only as an assay confounder; no P-gp transport prediction model
+T-cell receptor epitope immunogenicity prediction	journal.pcbi.0020065	MHC-I binding benchmark is about peptide-MHC affinity, not TCR/immunogenicity prediction
+predict antimicrobial peptide activity from sequence	acschembio.3c00159	corpus peptide work is permeability/similarity, not antimicrobial-activity prediction
+predict protein subcellular localization from sequence	gkr703	OPM gives membrane positioning of a structure, not subcellular-localization-from-sequence prediction
+de novo protein backbone design with diffusion models	2305.19800	diffusion here designs macrocyclic-peptide conformers, not new protein backbones (RFdiffusion-style)
+RNA secondary structure folding prediction	2206.01729	torsional diffusion is for small-molecule conformers; no RNA folding in corpus
+DNA-protein binding motif discovery from ChIP-seq	journal.pcbi.0020065	the binding benchmark is peptide-MHC, not DNA-motif/ChIP-seq analysis
+predict mass spectrometry fragmentation spectra of small molecules	bmc.2018.01.027	corpus MS/MS work is cyclic-peptide sequencing by database search, not in-silico fragmentation-spectrum prediction
+peptide retention time prediction in reversed-phase LC	acs.jmedchem.4c01956	chromatographic retention here is a lipophilicity surrogate for permeability, not an LC retention-time predictor for proteomics
+predict glycosylation sites on proteins	acs.jcim.1c01360	PepSeA aligns non-natural peptides; no PTM/glycosylation-site prediction
+coarse-grained MARTINI simulation of vesicle self-assembly	c9cp01169b	COSMOplex self-organizes bilayers via continuum theory, not MARTINI CG vesicle MD
+simulate lipid raft phase separation in membranes	j.bbamem.2015.12.014	corpus MD is single-solute permeation, not membrane phase behavior / raft separation
+predict critical micelle concentration of surfactants	jp801736k	COSMOmic models micelle partitioning of a solute, not CMC prediction of surfactants
+predict acid dissociation pKa of drug molecules with machine learning	acs.jpcb.9b11728	COSMOperm models pH dependence mechanistically as part of permeability, not a standalone ML pKa predictor
+estimate molecular polar surface area TPSA from 2D structure	fmc-2018-0429	corpus discusses PSA as a permeability descriptor but provides no TPSA-from-structure computation method
+predict human ether-related drug-induced QT prolongation risk	acs.jcim.8b00744	no cardiac / QT safety endpoint in corpus
+predict carcinogenicity of chemical compounds	acs.molpharmaceut.4c00975	corpus endpoints are permeability assays, not carcinogenicity
+graph neural network for molecular property prediction of toxicity	jm401411z	corpus ML is conformer generation and similarity, not a GNN toxicity property predictor
+predict bioavailability score from Lipinski rule-of-five descriptors	journal.pone.0190319	corpus models mechanistic permeability, not rule-of-five bioavailability scoring
+predict aggregation-prone regions in therapeutic proteins	j.sbi.2023.102603	chameleonic-peptide design concerns permeability conformations, not protein aggregation regions
+homology modeling of a protein from a template structure	pro.4219	PPM uses given structures; no homology/template-based modeling in corpus
+predict protein melting temperature Tm and unfolding	ci200020k	insertion energetics are membrane transfer, not thermal protein unfolding Tm
+estimate vapor pressure and Henry's law constant of organic chemicals	1.4890877	corpus partitioning is lipid-bilayer free energy, not vapor-pressure/Henry's-law volatility
+predict the boiling point of organic liquids	1.5027004	no bulk-liquid boiling-point property prediction in corpus
+molecular generative model conditioned on a target binding pocket	s41589-026-02237-7	cyclic-peptide design targets permeability, not pocket-conditioned generative ligand design
+predict synthetic accessibility score of a generated molecule	acs.jcim.3c00563	conformer-generation benchmarks, no synthetic-accessibility scoring
+predict drug-drug interaction from molecular structure	acs.molpharmaceut.4c00975	corpus is single-compound permeability, not drug-drug interaction prediction

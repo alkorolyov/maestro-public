@@ -1,0 +1,6 @@
+what is the weather forecast for tomorrow
+how do I reset my email password
+what time is it right now
+convert 10 miles to kilometers
+what are the rules of chess
+how do I install a python package with pip

@@ -1,0 +1,16 @@
+[project]
+name = "maestro-smoke"
+version = "0.1.0"
+description = "Throwaway toy project the maestro e2e harness adopts from zero each run."
+requires-python = ">=3.10"
+dependencies = []
+
+# NOTE: deliberately NO [tool.maestro] block here — the harness adds it, so that
+# tracker configuration itself gets exercised by the e2e flow.
+
+[tool.pytest.ini_options]
+addopts = "-m 'not slow and not integration'"
+markers = [
+    "slow: tests >1s or using heavy deps",
+    "integration: requires external resources (GPU, Docker, network)",
+]

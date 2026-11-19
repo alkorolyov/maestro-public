@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maestro"
+description = "Maestro experiment-tracking helper — W&B/MLflow run logging, plus the maestro record CLI"
+# The version lives in maestro_cli/__init__.py, the one place `maestro --version`
+# reads it from. Declared here as dynamic so a release bump touches a single file
+# instead of drifting between the two.
+dynamic = ["version"]
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml",   # the maestro CLI parses record frontmatter
+    # tracking.py reads [tool.maestro] with tomllib, stdlib only from 3.11. The floor
+    # above says 3.10, so the backport is a real requirement there — without it
+    # `import maestro.tracking` raises on a clean 3.10, which it did until the CI
+    # matrix below started running that version.
+    'tomli; python_version < "3.11"',
+]
+
+[project.optional-dependencies]
+# src/maestro/tracking.py is what an ADOPTED project imports; the CLI itself never
+# needs it. Kept out of the base install so a project with tracker = "none" — the
+# default, and per design.md's v2 audit the only value any project has ever had —
+# installs no tracker client at all. `maestro init --tracker=<name>` declares this
+# extra in the project that turns tracking on.
+tracking = [
+    "numpy",
+    "wandb",
+]
+
+# Test-only, never shipped in the wheel (PEP 735, resolved by uv). Declared because
+# they were not: the suite ran on whatever pytest the machine happened to have on PATH,
+# so a clean checkout could not run its own tests and CI had nothing to install.
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-cov",
+    # kb.py's vector maths and tracking.log_cv's fold stats. numpy left the base
+    # dependencies for the `tracking` extra in v2.8.0, which silently broke an
+    # isolated test run — invisible until CI stopped resolving it from the machine.
+    "numpy",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# The gate, in one place, so `uv run --group dev pytest` and CI cannot disagree about
+# what passing means. 85 is today's floor rounded down; it only goes up.
+addopts = "--cov=maestro_cli --cov=maestro --cov-report=term-missing --cov-fail-under=85"
+
+[project.scripts]
+maestro = "maestro_cli.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "maestro_cli.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src", "tools"]

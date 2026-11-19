@@ -1,0 +1,27 @@
+# === Per-experiment code (local by design) ===
+experiments/             # One-off hypothesis scripts, edited in place; pinned per run by exp_code_sha
+
+# === Data & outputs ===
+data/                    # All data (raw, processed, experiments, models)
+# DVC projects (modules/pipelines.md): replace the line above with these four, so the
+# pointer files and DVC's own ignore entries are tracked while every data file stays out:
+# data/**
+# !data/**/
+# !data/**/*.dvc
+# !data/**/.gitignore
+*.log                    # Experiment run logs
+*.db                     # Optuna databases
+
+# === Training framework ===
+logs/                    # TensorBoard / CSVLogger
+lightning_logs/
+wandb/
+
+# === Python ===
+__pycache__/
+*.egg-info/
+dist/
+build/
+
+# === Environment ===
+.env
